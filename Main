@@ -1,0 +1,349 @@
+
+package jogoImpostor;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
+import java.util.Random;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.util.stream.IntStream;
+import java.util.stream.DoubleStream;
+
+class Main {
+  public static final String RESET = "\033[0m";
+  public static final String RED = "\033[31m";
+  public static final String GREEN = "\033[32m";
+  public static final String YELLOW = "\033[33m";
+  public static final String PURPLE = "\033[35m";
+  public static final String CYAN = "\033[36m";
+  public static final String BOLD = "\033[1m";
+
+  public static void main(String[]args) {
+    boasVindas();
+    menuOpcoes();
+    jogadoresN1();
+  
+    //gerarDicas(null);
+    //palavraJaSorteada(args, null);
+    //sortearOrdemUsuarios(args);
+    //iniciarVotacao(args, args, 0);
+  }
+
+
+
+  public static void boasVindas() {
+    System.out.println(YELLOW + "\n #Seja bem vindo ao jogo do IMPOSTOR#" + RESET);
+          System.out.println();
+          System.out.println(CYAN + "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟");
+          System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟");
+          System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⢠⣼⣿⣿⣿⠿⠿⣿⣿⠻⢟⣛⠻⣿⣿⡿⠿⠿⣿⣿⣿⡿⠿⢿⣿⣿⣿⢇⠿⣿⣿⣿⠿⠿⢿⣿⡿⣿⡿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+          System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⣿⣿⡇⣼⡇⣷⡌⣿⠀⣾⣿⣷⢸⡏⣼⣷⣶⡌⣿⣅⡾⢶⣦⣽⣿⣷⡞⣶⣿⣿⢥⣾⣶⣦⢹⡇⣩⣾⣷⣬⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+          System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⣿⣿⡇⣿⡇⣿⡇⣿⢰⣮⣭⣵⣿⣇⠻⣿⡿⢇⣿⡛⢿⣷⡎⣻⣿⣿⣇⢿⣿⣿⡘⢿⣿⠿⣺⡇⢽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+          System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣾⣿⣷⣿⣷⣿⣷⣿⣾⣿⣿⣿⣿⣿⣷⣶⣶⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣷⣿⣿⣿⣶⣶⣾⣿⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿");
+          System.out.println("⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿" + RESET);
+
+
+          System.out.println("   _____     _____   ");
+          System.out.println("  /     \\   /     \\  ");
+          System.out.println(" | ( o o ) ( o o ) | ");
+          System.out.println("  \\  --- /   \\ ---  / ");
+          System.out.println("   \\____/     \\____/  ");
+
+          System.out.println();
+}
+
+     public static void menuOpcoes() {
+          Scanner ler = new Scanner(System.in);
+          boolean exit = false; // controlar quando sair do loop do menu
+
+          System.out.println(CYAN + "Digite X para ver o menu de opções." + RESET);
+
+          while (!exit) {
+              char key = ler.next().charAt(0); // Ler o próximo caractere digitado pelo usuário
+
+              if (key == 'x' || key == 'X') {
+
+                      System.out.println(GREEN + "\n Menu de opções: ⬇️\n" + RESET);
+
+                      String[] menuOptions = {
+                              "💡 Regras do Jogo",
+                              "🎮 Jogar",
+                              "🏃🏻‍♂️ Sair",
+                      };
+
+                      for (int i = 0; i < menuOptions.length; i++) {
+                          System.out.println((i + 1) + ". " + menuOptions[i]);
+                      }
+
+                      System.out.printf("\nEscolha uma opção: ");
+                      int choice = ler.nextInt();
+                      System.out.println();
+
+                      switch (choice) {
+                          case 1:
+                              System.out.println(GREEN +"\n ● O jogo da palavra impostora é um jogo em que\nvocê deve adivinhar a palavra falsa.");
+                              System.out.println("\n ● O jogo é dividido em rodadas, cada rodadas são\nsorteadas 3 palavras e cada palavra possui uma\ndica.Serão 2 palavras certas e 1 errada,ou seja,\n2 dicas corretas e uma falsa.");
+                              System.out.println("\n ● Através das dicas, você dará seus palpites de \numa das três palavras sorteadas, porém a ordem\nde respostas de cada jogador será sorteada a\ncada rodada.");
+                              System.out.println("\n ● Se você tiver maior pontuação, vence o jogo." + RESET);
+                              System.out.println(YELLOW + BOLD + "\n ● ⚠️ Observação: Se você não souber a palavra e for\no primeiro a ser selecionado a dar o palpite,\nvocê pode digitar qualquer palavra sorteada\nsupostamente a certa e o jogador seguinte\nperderá a chance de dar o palpite correto,\ne você poderá ganhar a rodada." + RESET);
+                              break;
+
+                          case 2:
+                          System.out.println(GREEN + "Iniciando o jogo..." + RESET);
+                          List<String> jogadores = jogadoresN1();
+                          iniciarJogo1(jogadores);
+                          break;
+                          case 3:
+                             System.out.println(RED + "Saindo..." + RESET);
+                                break;
+                          default:
+                              System.out.println(RED + "\nOpção inválida. Tente novamente."+RESET);
+                              System.out.println(PURPLE + "¯\\(ツ)/¯" + RESET);
+                              break;
+                      }     
+                  } else {
+                      System.out.println(GREEN + "Digite X para ver o menu de opções." + RESET);
+
+          }
+          }
+          }
+
+        public static List<String> jogadoresN1() {
+            Scanner ler = new Scanner(System.in);
+
+            System.out.print("Quantos jogadores irão participar? ");
+            int numJogadores = ler.nextInt();
+            ler.nextLine(); // Limpar o buffer do scanner
+
+            List<String> jogadores = new ArrayList<>();
+            for (int i = 0; i < numJogadores; i++) {
+                System.out.print("Nome do jogador " + (i + 1) + ": ");
+                String nome = ler.nextLine();
+                jogadores.add(nome);
+            }
+            return jogadores; // Retorna a lista de jogadores
+        }
+              
+
+        public static void iniciarJogo1(List<String> jogadores) {
+          Random random = new Random();
+          Scanner ler = new Scanner(System.in);
+          Map<String, Integer> pontuacao = new HashMap<>();
+
+          // Inicializa a pontuação de todos os jogadores como zero
+          for (String jogador : jogadores) {
+              pontuacao.put(jogador, 0);
+          }
+          System.out.println(GREEN + "\n Jogo em andamento" + RESET);
+          int totalPontos = 6;
+          for (int i = 0; i < totalPontos; i++) {
+              System.out.print(".");
+              try { //exceção
+                  TimeUnit.SECONDS.sleep(1);
+              } catch (InterruptedException e) {//captura a exceçao
+                  e.printStackTrace();//mostra aonde ocorreu a exceção
+              }
+          }
+        // Sorteio da ordem dos jogadores (adentro do método iniciarJogo1)
+
+        for (int round = 0; round < 4; round++) {
+          
+        System.out.println(YELLOW + "\n Categorias: \n"+RESET);
+        System.out.println("1. Animais");
+        System.out.println("2. Objetos");
+        System.out.println("3. Profissões");
+        System.out.println();
+
+        System.out.println(PURPLE + "Escolha uma opção: "+ RESET);
+        int escolhaCategoria = ler.nextInt();
+
+        String[] palavrasAnimais = {"🐈 gato", "🐶 cachorro", "🐘 elefante", "🦁 leão", "🐅 tigre"};
+        String[] palavrasObjetos = {"mesa", "🪑 cadeira", "🖥️ computador", "📺 televisão", "🚗 carro"};
+        String[] palavrasProfissoes = {"👨‍⚕️ médico", "👨‍🏫 professor", "👷 engenheiro", "‍⚖️‍📝 advogado", "🧑‍✈️ piloto"};
+
+        String[] palavrasEscolhidas = null;
+          switch (escolhaCategoria) {
+                case 1:
+                    palavrasEscolhidas = palavrasAnimais;
+                    System.out.println(CYAN +"Você escolheu a categoria: Animais"+RESET);
+
+                    break;
+                case 2:
+                    palavrasEscolhidas = palavrasObjetos;
+                    System.out.println(CYAN +"Você escolheu a categoria: Objetos"+RESET);
+
+                    break;
+                case 3:
+                    palavrasEscolhidas = palavrasProfissoes;
+                    System.out.println(CYAN +"Você escolheu a categoria: Profissões"+RESET);
+
+                    break;
+                default:
+                    System.out.println(CYAN +"Opção inválida. Tente novamente..."+RESET);
+                    System.out.println(RED + "¯\\(ツ)/¯"+RESET);
+                    break;
+          }
+
+          // Sorteio da ordem dos jogadores a cada rodada
+          Collections.shuffle(jogadores);
+          System.out.println("\nA ordem de votação para a rodada " + (round + 1) + " será:");
+          for (int i = 0; i < jogadores.size(); i++) {
+              System.out.println((i + 1) + ". " + jogadores.get(i));
+          }
+          
+              System.out.println("\nRodada " + (round + 1) + GREEN + "\nSorteando palavras" + RESET);
+              for (int i = 0; i < 3; i++) {
+                  try {
+                      TimeUnit.SECONDS.sleep(1);
+                      System.out.print(".");
+                  } catch (InterruptedException e) {
+                      e.printStackTrace();
+                  }
+      }
+          // Sorteio das palavras
+          for (int i = 0; i < 3; i++) {
+              int indiceAleatorio = random.nextInt(palavrasEscolhidas.length);
+              String palavraSorteada = palavrasEscolhidas[indiceAleatorio];
+
+
+        }
+                    // Sorteio da palavra falsa (sem mostrar para o usuário)
+                    int indiceFalso = random.nextInt(3);
+
+                    System.out.println("\nUma das palavras é falsa! Descubra qual:");
+                    for (int i = 0; i < 3; i++) {
+                        String palavra = palavrasEscolhidas[i]; 
+                        System.out.println("Palavra " + (i + 1) + ": " + palavra); // Exibe sem marcar a falsa
+                    }
+          // Dicas sobre a palavra falsa
+            System.out.println("\nDicas:");
+            for (int i = 0; i < 3; i++) {
+                String palavra = palavrasEscolhidas[i]; // Movendo a declaração para cá
+                String dica = "";
+
+            if (i == indiceFalso) {
+                    // Dica para a palavra falsa (invertida ou característica que não se aplica)
+                    switch (escolhaCategoria) {
+                        case 1: // Animais
+                            switch (palavra) {
+                                case "🐈 gato":
+                                    dica = "Não late."; // Inverte a característica do cachorro
+                                    break;
+                                case "🐶 cachorro":
+                                    dica = "Não mia."; // Inverte a característica do gato
+                                    break;
+                                case "🐘 elefante":
+                                    dica = "Não tem pescoço comprido."; // Característica da girafa
+                                    break;
+                                case "🦁 leão":
+                                    dica = "Não vive em bandos."; // Característica dos lobos
+                                    break;
+                                case "🐅 tigre":
+                                    dica = "Não tem pintas."; // Característica da onça
+                                    break;
+                            }
+                            break;
+                        case 2: // Objetos
+                            switch (palavra) {
+                                case "mesa":
+                                    dica = "Não é usado para sentar."; // Característica da cadeira
+                                    break;
+                                case "🪑 cadeira":
+                                    dica = "Não é usado para comer."; // Característica da mesa
+                                    break;
+                                case "🖥️ computador":
+                                    dica = "Não é usado para assistir filmes."; // Característica da televisão
+                                    break;
+                                case "📺 televisão":
+                                    dica = "Não é usado para digitar."; // Característica do computador
+                                    break;
+                                case "🚗 carro":
+                                    dica = "Não é usado para transporte público."; // Característica do ônibus
+                                    break;
+                            }
+                            break;
+                        case 3: // Profissões
+                            switch (palavra) {
+                                case "👨‍⚕️ médico":
+                                    dica = "Não constrói casas."; // Característica do engenheiro
+                                    break;
+                                case "👨‍🏫 professor":
+                                    dica = "Não pilota aviões."; // Característica do piloto
+                                    break;
+                                case "👷 engenheiro":
+                                    dica = "Não defende clientes em tribunais."; // Característica do advogado
+                                    break;
+                                case "‍⚖️‍📝 advogado":
+                                    dica = "Não receita medicamentos."; // Característica do médico
+                                    break;
+                                case "🧑‍✈️ piloto":
+                                    dica = "Não ensina alunos."; // Característica do professor
+                                    break;
+                            }
+                            break;
+                    } // Fim do switch (escolhaCategoria)
+                } else {
+                    // Se não for a palavra falsa, não exibe dica
+                    dica = ""; 
+                }
+
+                if (!dica.isEmpty()) { // Só exibe se a dica não estiver vazia
+                    System.out.println("Dica " + (i + 1) + ": " + dica);
+                }
+            } // Fim do for
+          // Votação com base na ordem sorteada
+          boolean palavraFalsaAdivinhada = false;
+          for (String jogador : jogadores) { // Itera na ordem sorteada
+              System.out.println("\nVez de " + jogador + " votar:");
+              System.out.print("Em qual palavra você acha que está a impostora? (1, 2 ou 3): ");
+              int voto = ler.nextInt();
+              while (voto < 1 || voto > 3) {
+                  System.out.println(RED + "Voto inválido. Escolha 1, 2 ou 3." + RESET);
+                  System.out.print("Em qual palavra você acha que está a impostora? (1, 2 ou 3): ");
+                  voto = ler.nextInt();
+              }
+              if (voto - 1 == indiceFalso) {
+                  System.out.println(GREEN + "Parabéns, " + jogador + "! Você acertou!" + RESET);
+                  pontuacao.put(jogador, pontuacao.get(jogador) + 1);
+                  palavraFalsaAdivinhada = true;
+                  break; // Sai do loop de votação, pois a palavra falsa foi encontrada
+              } else {
+                  System.out.println(RED + "Que pena, " + jogador + "! Você errou." + RESET);
+              }
+          }
+            // Revela a palavra falsa ao final da rodada
+            System.out.println(YELLOW + "\nA palavra falsa era: " + palavrasEscolhidas[indiceFalso] + RESET);
+
+          // Fim do jogo: determinar o vencedor e o perdedor
+          System.out.println(GREEN + "\nFim do jogo!\n" + RESET);
+          // Verifica se alguém pontuou
+          boolean alguemPontuou = pontuacao.values().stream().anyMatch(pontos -> pontos > 0);
+
+          if (alguemPontuou) {
+              List<Map.Entry<String, Integer>> listaPontuacao = new ArrayList<>(pontuacao.entrySet());
+              listaPontuacao.sort(Map.Entry.comparingByValue(Comparator.reverseOrder())); // Ordena por pontuação decrescente
+
+              String vencedor = listaPontuacao.get(0).getKey();
+              int maiorPontuacao = listaPontuacao.get(0).getValue();
+              System.out.println(GREEN + "Vencedor: " + vencedor + " com " + maiorPontuacao + " pontos!" + RESET);
+
+              String perdedor = listaPontuacao.get(listaPontuacao.size() - 1).getKey();
+              int menorPontuacao = listaPontuacao.get(listaPontuacao.size() - 1).getValue();
+              System.out.println(RED + "Perdedor: " + perdedor + " com " + menorPontuacao + " pontos." + RESET);
+          } else {
+              System.out.println(YELLOW + "Ninguém acertou nenhuma palavra falsa. Não houve vencedor!" + RESET);
+          }
+        
+
+        }
+       System.out.println("Obrigado por jogar!");
+    
+      
+  }
+}
